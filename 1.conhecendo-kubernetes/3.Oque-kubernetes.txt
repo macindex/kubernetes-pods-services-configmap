@@ -1,0 +1,7 @@
+Então, antes de nós começarmos a colocar a mão na massa com qualquer coisa do tipo com Kubernetes, nós precisamos entender o que é o Kubernetes, algumas questões arquiteturais em linhas gerais de como ele funciona e quais problemas ele resolve.
+
+E isso é bem importante, tanto que nós vamos começar com um exemplo aqui bem clássico. Nós temos aqui uma máquina e nós estamos executando alguns containers.
+
+Vamos fazer aqui a ponte com um Docker, que é o que nós temos por enquanto. Nós temos alguns containers em execução dentro dessa máquina, e caso nós queiramos executar mais containers dentro dessa máquina para mantermos a nossa aplicação em execução, o que pode acabar acontecendo?
+
+
