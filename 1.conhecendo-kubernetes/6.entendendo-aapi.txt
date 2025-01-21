@@ -1,0 +1,16 @@
+João e sua equipe de trabalho entraram numa discussão sobre qual seria a melhor maneira de se comunicar com a API do Kubernetes. Eles sabem que essa comunicação é fundamental para gerenciar e monitorar seus contêineres de maneira eficaz. No entanto, ainda não sabem qual ferramenta usar para realizar a tarefa. João propôs quatro opções, mas a equipe não tem certeza de qual é a indicada.
+
+Ajude-os a descobrir qual é a ferramenta certa para se comunicar com a API do Kubernetes.
+
+Selecione uma alternativa
+
+Acessando cada máquina individualmente via ssh.
+
+
+Através do kernel do sistema, invocamos comandos diretamente para a API.
+
+
+Utilizando uma ferramenta chamada kubectl.
+
+
+Utilizando uma ferramenta chamada kube-caller.
