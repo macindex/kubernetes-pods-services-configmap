@@ -1,0 +1,21 @@
+João é um engenheiro de software que trabalha em uma empresa de tecnologia que busca migrar suas 
+aplicações para a nuvem e está avaliando o uso do Kubernetes para gerenciar seus contêineres. 
+Durante uma reunião com sua equipe, João apresentou uma série de informações sobre as capacidades do Kubernetes, 
+o que deu início a um debate a respeito da confiabilidade delas. Dentre três afirmações, o time não conseguiu concordar: 
+afinal, qual delas é verdadeira?
+
+Ajude João e sua equipe a decidir qual é a afirmação correta.
+
+
+
+O Kubernetes não é capaz de escalar aplicações automaticamente.
+
+
+Alternativa correta
+O Kubernetes é capaz de reiniciar aplicações automaticamente em caso de falhas.
+
+
+Alternativa correta!
+
+Podemos executar o kubernetes apenas localmente.
+
