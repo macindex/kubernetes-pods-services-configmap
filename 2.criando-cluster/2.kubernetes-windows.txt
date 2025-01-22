@@ -1,0 +1,11 @@
+Depois de definir a ferramenta para se comunicar com a API do Kubernetes, João e sua equipe precisam criar um cluster em seus 
+computadores Windows para testar aplicações em contêineres. Mas eles não têm certeza de como fazer isso.
+
+Dentre as opções, ajude-os a descobrir qual é a maneira correta de criar um cluster do Kubernetes no Windows.
+
+Selecione uma alternativa
+
+A. Para utilizar o Kubernetes no Windows, a única possibilidade é utilizando serviços de cloud.
+B. Utilizando o próprio Docker Desktop, conseguimos inicializar um cluster.
+C. O Windows já vem nativamente com o Kubernetes instalado.
+D.  necessário baixar o arquivo de instalação do Kubernetes e instalar normalmente.
