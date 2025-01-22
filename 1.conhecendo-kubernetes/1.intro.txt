@@ -1,52 +1,41 @@
-Este repositório traz o conteúdo sobre Kubernetes nele nós vamos entender, desde o início, o que é essa ferramenta, para que ela serve e como nós podemos utilizar os recursos que ela nos provê, para que nós possamos tirar o máximo de proveito dessa ferramenta.
+Este repositório traz o conteúdo sobre Kubernetes nele nós vamos entender, desde o início, o que é essa ferramenta, 
+para que ela serve e como nós podemos utilizar os recursos que ela nos provê, para que nós possamos tirar o máximo de 
+proveito dessa ferramenta.
 
-E esse curso vai ser dividido em duas partes, onde nós vamos abordar diversos destes recursos que o Kubernetes tem para nós e nós vamos entender o que ele já consegue fazer para nos ajudar do início ao fim desse curso.
-
-Então, nós vamos entender o que é um Pod, um ReplicaSet, um Deployment e um Volume. Todas essas questões nós vamos entender durante a primeira e a segunda parte desse curso, então caso você sinta a falta de algum conteúdo nessa primeira parte, fique tranquilo porque provavelmente ele vai ser coberto na segunda.
-
-Imagem com um ícone proeminente do Kubernetes representado por um leme de barco. Abaixo, há vários ícones com as legendas: pod, rs, deploy, vol, hpa, pv, ing, pvc, svc, sc, ds e quota.
-
-E outro aviso é que, como esse curso é voltado a introduzir e apresentar o Kubernetes para vocês, nós não vamos ter ele voltado em nenhuma plataforma específica. Então eu vou fazer o máximo para mostrar para vocês como ele funciona no Windows, no Linux e também em alguns Clouds Providers; no caso aqui, o Google Cloud plataform.
-
-Não vai ser com foco nas plataformas, e sim como Kubernetes funcionam; para nós entendermos o que essa ferramenta nos dá e como nós podemos utilizar ela em qualquer um desses ambientes.
-
-Então por esse vídeo aqui é só! Espero que vocês curtam o curso e nós nos veremos no próximo vídeo. Até mais!
-
-Toda a máquina tem um limite de poder computacional; então caso essa máquina atinja o seu limite, pode ser que ela pare de funcionar, a aplicação responde de maneira mais lenta ou a máquina fique reiniciando incessantemente. Nós temos diversas possibilidades do que pode acontecer com essa máquina.
-
-E para nós resolvermos esse problema temos uma solução bem simples, que é simplesmente comprarmos uma máquina mais potente, com maior poder computacional, para que ela consiga executar os nossos containers sem nenhum problema.
-
-Então nós chamamos isso de adicionar mais poder computacional à uma mesma máquina; adicionando mais processamento, memória, armazenamento para resolvermos aqui o nosso problema de escalabilidade vertical. Então nós adquirimos uma máquina mais “parruda” para resolvermos o nosso problema.
-
-E ainda no mesmo problema: como nós poderíamos resolver ele de outra forma? Nós temos a mesma situação, em que se nós tentarmos adicionar mais containers nessa máquina, ela vai parar de funcionar; nós estamos atingindo o limite computacional dessa máquina.
-
+Esse curso vai ser dividido em duas partes, onde nós vamos abordar diversos destes recursos que o Kubernetes 
+tem para nós e nós vamos entender o que ele já consegue fazer para nos ajudar do início ao fim desse curso.
+Então, nós vamos entender o que é um Pod, um ReplicaSet, um Deployment e um Volume. Todas essas questões nós vamos 
+entender durante a primeira e a segunda parte desse curso, então caso você sinta a falta de algum conteúdo nessa primeira parte, 
+fique tranquilo porque provavelmente ele vai ser coberto na segunda.
+Imagem com um ícone proeminente do Kubernetes representado por um leme de barco. 
+Abaixo, há vários ícones com as legendas: pod, rs, deploy, vol, hpa, pv, ing, pvc, svc, sc, ds e quota.
+E outro aviso é que, como esse curso é voltado a introduzir e apresentar o Kubernetes, nós não vamos ter ele voltado em 
+nenhuma plataforma específica. Será abordado no Windows, no Linux e também em alguns Clouds Providers; 
+no caso aqui, o Google Cloud plataform.
+Não vai ser com foco nas plataformas, e sim como Kubernetes funcionam; para nós entendermos o que essa ferramenta nos dá e como nós 
+podemos utilizar ela em qualquer um desses ambientes.
+Toda a máquina tem um limite de poder computacional, então caso essa máquina atinja o seu limite, pode ser que ela pare de funcionar, 
+a aplicação responde de maneira mais lenta ou a máquina fique reiniciando incessantemente. Nós temos diversas possibilidades do que pode acontecer com essa máquina.
+E para nós resolvermos esse problema temos uma solução bem simples, que é simplesmente comprarmos uma máquina mais potente, 
+com maior poder computacional, para que ela consiga executar os nossos containers sem nenhum problema
+Então nós chamamos isso de adicionar mais poder computacional à uma mesma máquina; adicionando mais processamento, memória, 
+armazenamento para resolvermos aqui o nosso problema de escalabilidade vertical. Então nós adquirimos uma máquina mais “parruda” 
+para resolvermos o nosso problema
+E ainda no mesmo problema: como nós poderíamos resolver ele de outra forma? Nós temos a mesma situação, em que se nós tentarmos 
+adicionar mais containers nessa máquina, ela vai parar de funcionar; nós estamos atingindo o limite computacional dessa máquina.
 Para resolvermos isso nós podemos simplesmente adicionar mais máquinas para trabalhar aqui em paralelo com a nossa máquina original, então elas também vão ter capacidade de executar os containers sem nenhum problema e elas vão se comunicar de alguma maneira para falar o que estão fazendo com os containers que estão dentro delas.
-
-Nesse caso onde nós adicionamos mais máquinas para trabalhar em paralelo em conjunto com as outras, nós chamamos de escalabilidade horizontal. Então nós adicionamos mais máquinas para resolver o nosso problema.
-
+Nesse caso onde nós adicionamos mais máquinas para trabalhar em paralelo em conjunto com as outras, nós chamamos de escalabilidade horizontal. Então nós adicionamos mais máquinas para resolver o nosso problema
 Mas por que eu estou falando isso para vocês? Onde é que o Kubernetes entra nessa história?
-
 O Kubernetes entra do seguinte modo: eu falei para vocês agora que nós resolvemos o problema na escalabilidade horizontal dividindo o poder computacional das máquinas trabalhando em paralelo. Então o Kubernetes é capaz de fazer isso, ele gerencia uma ou múltiplas máquinas trabalhando em conjunto, que nós vamos chamar de cluster.
-
-Então, uma ou mais máquinas trabalhando em conjunto, dividindo o seu poder computacional, nós vamos chamar de um cluster. O Kubernetes é capaz de criar esse cluster e o gerenciar para nós.
-
+Então, uma ou mais máquinas trabalhando em conjunto, dividindo o seu poder computacional, nós vamos chamar de um cluster. O Kubernetes é capaz de criar esse cluster e o gerenciar para nós
 É aí que Kubernetes entra na história! Então nós conseguimos encontrar um cluster com Kubernetes; seja na AWS, seja no Google Cloud Plataform e na Azure também, aqui com Minikube no final.
-
 Nós vamos utilizar aqui no curso, nós vamos fazer alguns exemplos diversos com o Google Cloud Plataform, nós vamos fazer alguns com Minikube e também com o próprio Docker desktop no Windows. Então nós vamos variar bem os cenários para vocês fixarem bem a ideia.
-
 Mas como o Kubernetes vai trabalhar com esse cluster? O que ele é capaz de fazer? Digamos que, mais uma vez, usando a licença poética de chamar de “container” até então, porque é o que nós sabemos do Docker.
-
 Então, digamos que nós queremos utilizar um container dentro de uma máquina do nosso cluster. Nós simplesmente pedimos ao Kubernetes que ponha esse container para executar dentro do nosso cluster e ele vai definir para ele aqui, usando os algoritmos que ele tem ali internamente - que, por exemplo, a nossa primeira máquina é a melhor a executar esse container.
-
-E se eu quiser executar outro como a primeira máquina, já está sendo utilizada ali um pouco do poder computacional dela; pode ser que o Kubernetes defina que a segunda máquina vai ser responsável por executar esse container.
-
+E se eu quiser executar outro como a primeira máquina, já está sendo utilizada ali um pouco do poder computacional dela; pode ser que o Kubernetes defina que a segunda máquina vai ser responsável por executar esse container
 E caso esse container falhe, por exemplo, o Kubernetes tem total capacidade de adicionar um novo container para substituir esse que estava até então ali na nossa máquina e falhou.
-
 E caso essas duas máquinas atinjam o seu limite de poder computacional em algum momento, o Kubernetes também é capaz de criar uma nova máquina dentro do nosso cluster para que nós consigamos também adicionar mais containers à essas máquinas - e isso é claro, uma máquina virtual. Nós não vamos materializar uma máquina física aqui na nossa casa ou no nosso ambiente de trabalho.
-
 Então a questão é essa: o Kubernetes é capaz de criar e gerenciar um cluster para que nós consigamos manter a nossa aplicação escalável sempre que nós quisermos adicionar novos containers, sempre que nós quisermos reiniciar a nossa aplicação de maneira automática, caso ela tenha falhado. Então nós chamamos isso de orquestração de containers.
-
 Então o Kubernetes é um orquestrador de containers capaz de resolver todos esses problemas que eu listei para vocês.
-
 Então nós vamos ver no decorrer desse curso todas as formas que o Kubernetes tem para nos ajudar a resolver diversos tipos de problemas que ainda podem aparecer. A ideia base para vocês é essa, mas nós vamos abordar várias outras no decorrer do curso.
 

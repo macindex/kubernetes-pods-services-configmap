@@ -10,7 +10,7 @@ Acessando cada máquina individualmente via ssh.
 Através do kernel do sistema, invocamos comandos diretamente para a API.
 
 
-Utilizando uma ferramenta chamada kubectl.
+Utilizando uma ferramenta chamada kubectl. *
 
 
 Utilizando uma ferramenta chamada kube-caller.

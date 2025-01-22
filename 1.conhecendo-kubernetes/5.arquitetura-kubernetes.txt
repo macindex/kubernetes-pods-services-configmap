@@ -1,65 +1,58 @@
-Antes de nós colocarmos a "mão na massa" no próximo vídeo, nós vamos entender ainda uma última questão arquitetural e de recursos do Kubernetes. Como assim?
-
-Ele vai muito além de ser um simples orquestrador de containers, ele já tem diversos recursos, como eu acabei de falar para vocês, que nos ajudam a resolver diversos tipos de problemas de maneira bem mais prática, sem nós implementarmos tudo do zero.
-
-Como assim? Esse resources para se dizer a terminologia correta, já têm soluções ali implementadas para determinadas tipos de caso. Então nós temos, por exemplo: pods, ReplicaSets, Deployments, Volumes. Nós vamos estudar cada um desses no decorrer do curso e quais problemas eles resolvem.
-
-Então, por exemplo: se eu quero lidar com a questão de persistência de dados eu posso utilizar um recurso já pronto, que é o Persistent Volume. Então eu só vou definir como eu quero utilizar o Persistent Volume: se eu quero e devo utilizar e encapsular um container para utilizar no Kubernetes, eu utilizo um pod.
-
-Então já dando um pequeno spoiler para vocês: um podnada mais é do que um recurso que encapsula um container no Kubernete. Nós nunca vamos utilizar um container propriamente dito diretamente no Kubernete, nós vamos utilizar pods.
-
-Mas nós vamos ter uma aula voltada só para isso e para o Persistent Volume. É só para dar uma noção para vocês.
-
-Utilizando esses recursos nós conseguimos construir aplicações bem elaboradas; onde, por exemplo, nós recebemos um tráfego de dados no nosso session, no nosso serviço e ele consegue fazer o balanceamento de cargas entre os pods que nós temos dentro da nossa aplicação.
-
-Esses pods podem estar sendo gerenciados por um ReplicaSet que pode estar sendo gerenciado por um deployment e pode ser escalado. Nós podemos aumentar o número de pods, um horizontal pod autoscaler.
-
-Então são coisas bem legais que nós conseguimos fazer de maneira bem prática com Kubernetes, porque estes recursos já nos estão prontos.
-
-Mas como eu falei para vocês, vamos com calma. Nós vamos ver isso no decorrer da parte 1 e da parte 2.
-
-Só que outra coisa que é importante nós sabermos também é que o Kubernetes ,como eu falei para vocês, vai gerenciar um cluster, e as máquinas dentro de um cluster recebem denominações diferentes.
-
-Elas podem ser master, onde o master é responsável por coordenar e gerenciar todo o nosso cluster e nós temos os notes que são responsáveis pela execução do trabalho duro, para executar os nossos pods em capsulas containers, por assim dizer.
-
-Mas, se nós formos sinalizar para entendermos de uma maneira mais detalhada, nós já vimos que os masters são responsáveis por gerenciar o cluster, eles vão ser responsáveis também por manter e atualizar o estado desejado.
-
-Então se eu quero que um pod esteja em execução, o master vai ser o responsável por manter esse pod em execução; caso ele caia, ele vai ter um sinal ali responsável por fazer esse pod voltar a execução.
-
-Ele também é responsável por receber os comandos. Eu quero criar algum recurso novo no meu cluster; eu vou me comunicar através do master, o qual vai ter todos os componentes necessários para lidar com isso e os nodes vão ser responsáveis por executar as nossas aplicações.
-
-Mas se nós ainda formos detalhar um pouco mais, nós conseguimos que os componentes que eu falei para vocês agora possam ser destrinchados. Então, a API, por exemplo, é responsável por receber e executar os novos comandos, ela é uma API REST.
-
-E nós temos o Controller Manager, que é responsável por manter e atualizar o estado desejado; nós temos os scheduler, responsável por definir onde determinado pod, vai ser executado no nosso cluster.
-
+Antes de nós colocarmos a "mão na massa" nós vamos entender ainda uma última questão arquitetural e de recursos do Kubernetes. 
+Ele vai muito além de ser um simples orquestrador de containers, ele já tem diversos recursos, como eu acabei de falar para vocês, 
+que nos ajudam a resolver diversos tipos de problemas de maneira bem mais prática, sem nós implementarmos tudo do zero.
+Como assim? Esse resources para se dizer a terminologia correta, já têm soluções ali implementadas para determinados tipos de caso. 
+Então nós temos, por exemplo: pods, ReplicaSets, Deployments, Volumes. Nós vamos estudar cada um desses no decorrer do curso e quais 
+problemas eles resolvem.
+Então, por exemplo: se eu quero lidar com a questão de persistência de dados eu posso utilizar um recurso já pronto, que é o Persistent Volume. 
+Então eu só vou definir como eu quero utilizar o Persistent Volume: se eu quero e devo utilizar e encapsular um container para utilizar 
+no Kubernetes, eu utilizo um pod.
+Então já dando um pequeno spoiler para vocês: um pod nada mais é do que um recurso que encapsula um container no Kubernete. 
+Nós nunca vamos utilizar um container propriamente dito diretamente no Kubernete, nós vamos utilizar pod.
+Mas nós vamos ter uma aula voltada só para isso e para o Persistent Volume
+Utilizando esses recursos nós conseguimos construir aplicações bem elaboradas, onde por exemplo, nós recebemos um tráfego de dados no 
+nosso session, no nosso serviço e ele consegue fazer o balanceamento de cargas entre os pods que nós temos dentro da nossa aplicação.
+Esses pods podem estar sendo gerenciados por um ReplicaSet que pode estar sendo gerenciado por um deployment e pode ser escalado. 
+Nós podemos aumentar o número de pods, um horizontal pod autoscaler
+Então são coisas bem legais que nós conseguimos fazer de maneira bem prática com Kubernetes, porque estes recursos já estão prontos.
+Só que outra coisa que é importante nós sabermos também é que o Kubernete, vai gerenciar um cluster, e as máquinas dentro de um cluster 
+recebem denominações diferentes.
+Elas podem ser master, onde o master é responsável por coordenar e gerenciar todo o nosso cluster e nós temos os notes que são 
+responsáveis pela execução do trabalho duro, para executar os nossos pods em capsulas containers, por assim dizer.
+Mas, se nós formos sinalizar para entendermos de uma maneira mais detalhada, nós já vimos que os masters são responsáveis por gerenciar 
+o cluster, eles vão ser responsáveis também por manter e atualizar o estado desejado.
+Então se eu quero que um pod esteja em execução, o master vai ser o responsável por manter esse pod em execução caso ele caia, 
+ele vai ter um sinal ali responsável por fazer esse pod voltar a execução.
+Ele também é responsável por receber os comandos. Eu quero criar algum recurso novo no meu cluster eu vou me comunicar através do master, 
+o qual vai ter todos os componentes necessários para lidar com isso e os nodes vão ser responsáveis por executar as nossas aplicações.
+Mas se nós ainda formos detalhar um pouco mais, nós conseguimos que os componentes que eu falei para vocês agora possam ser 
+destrinchados. Então, a API, por exemplo, é responsável por receber e executar os novos comandos, ela é uma API REST.
+E nós temos o Controller Manager, que é responsável por manter e atualizar o estado desejado, nós temos os scheduler, responsável por definir 
+onde determinado pod, vai ser executado no nosso cluster
 E nós temos ETCD, o responsável por armazenar todos os dados vitais do nosso cluster através de um banco de dados chave-valor.
-
-E dentro do nosso Node nós encontramos dois componentes: o Kubelet, que é responsável pela execução dos poddentro dos nodes; e o KubeProxy, que é responsável pela comunicação entre os nossos nodes dentro do nosso cluster.
-
-Então, a partir daí nós conseguimos saber o quê? Nós conseguimos nomear essa parte de Control Plane, a composição desses quatro de cima (API, Controller Manager, Scheduler e ETCD) e esses dois componentes (Kubelet e KubeProxy) fazem parte dos Nodes, Control Plane Nodes.
-
-Então, só para vocês terem essa noção, terem o conhecimento e saber do que se trata, caso você entrem em uma conversa sobre isso, para saber e entender como funciona por debaixo dos panos, para não passar batido - isso é bem importante.
-
-Mas para visualizarmos ainda melhor, nós temos esses seis componentes aqui (API, Controller Manager, Scheduler e ETCD) e que nós dividimos de um lado o nosso Control Plane e nós dividimos do outro aqui os nossos nós
-
-Então, nós vamos ter para cada nó que nós tivermos, um par de Kubelet e KubeProxy. A API vai ser responsável por manter a comunicação entre todos esses componentes.
-
-Então a API, além de receber as ordens do mundo externo e do que nós queremos fazer com o nosso cluster, ela é responsável por manter a comunicação com Controller Manager, um ETCD, com Scheduler e também os nossos nodes.
-
-Por isso que ela é tão importante, ela é tão importante que nós vamos falar aqui sobre ela mais um pouco. Nós vimos que ela é responsável por fazer essa mágica, por conseguir gerenciar os recursos do nosso cluster, nos nossos resources.
-
-Então através dela nós conseguimos criar um pod, editar um ReplicaSet, ler os dados no Deployment, deletar um Volume - tudo isso através da API, nós nunca vamos nos comunicar diretamente com os outros componentes; vai ser sempre através da API.
-
-Mas, como nós nos comunicamos através da API? Como nós falamos com a API? A nossa máquina não tem poder da vidência e de saber o que é API e como se comunicar com ela, nós precisamos ter uma forma clara de se comunicar com ela através dessa API REST.
-
-Para isso, nós temos uma ferramenta chamada Kubectl, que nos provê as funcionalidades de criar, ler, atualizar e remover os dados do nosso cluster, os componentes do nosso cluster, os nossos recursos.
-
-Então, através do Kubectl nós conseguimos fazer isso de maneira declarativa ou imperativa. Nós podemos criar arquivos de definição, que nós vamos ver no decorrer do curso, ou executarmos comandos, que simplesmente vão fazer essa mágica acontecer.
-
-E tudo isso ainda vai ser enviado um request do nosso Kubectl para a nossa API REST, que vai fazer a mágica acontecer dentro do nosso cluster. Só que a dúvida que fica agora e que nós vamos responder no próximo vídeo é: como nós instalamos o Kubectl? Porque nós não temos instalado ainda. E como nós inicializamos o nosso cluster?
-
-Imagem com ícone representando um computador com a legenda "kubectl" e uma lista com "Criar", "Ler", "Atualizar" e "Remover". Este se conecta à área de "Cluster" por uma seta de duplo sentido com as legendas "Requests" e "Declarativo ou Imperativo". Na área de Cluster, a primeira seta se conecta ao ícone de "API", que por sua vez se conecta com uma seta de duplo sentido a um desenho de chapéu de mágico com os ícones de "pod", "rs", "deploy" e "vol".
-
-Nós vamos ver que tem diferentes maneiras de nós inicializarmos aqui o nosso cluster, seja no Windows, seja no Linux, ou seja na nuvem. Eu vou mostrar os três casos para vocês e nós vamos entender como o cluster é inicializado e como nós utilizamos o Kubectl para nos comunicarmos com ele.
-Então é isso! Por esse vídeo nós ficamos com essa parte bem teórica, mas no próximo nós começaremos com a prática. Até mais!
-
+E dentro do nosso Node nós encontramos dois componentes: o Kubelet, que é responsável pela execução dos pods dentro dos nodes e o KubeProxy, 
+que é responsável pela comunicação entre os nossos nodes dentro do nosso cluster.
+Então, a partir daí nós conseguimos saber o quê? Nós conseguimos nomear essa parte de Control Plane, a composição desses quatro de cima 
+(API, Controller Manager, Scheduler e ETCD) e esses dois componentes (Kubelet e KubeProxy) fazem parte dos Nodes, Control Plane Nodes
+Mas para visualizarmos ainda melhor, nós temos esses seis componentes aqui (API, Controller Manager, Scheduler e ETCD) e que nós dividimos de um lado o nosso Control Plane e nós dividimos do outro aqui os nossos nós.
+Então, nós vamos ter para cada nó que nós tivermos, um par de Kubelet e KubeProxy. A API vai ser responsável por manter a comunicação entre todos esses componentes
+Então a API, além de receber as ordens do mundo externo e do que nós queremos fazer com o nosso cluster, ela é responsável por manter a comunicação com Controller Manager, 
+um ETCD, com Scheduler e também os nossos nodes.
+Por isso que ela é tão importante, ela é tão importante que nós vamos falar aqui sobre ela mais um pouco. 
+Nós vimos que ela é responsável por fazer essa mágica, por conseguir gerenciar os recursos do nosso cluster, nos nossos resources.
+Então através dela nós conseguimos criar um pod, editar um ReplicaSet, ler os dados no Deployment, deletar um Volume - tudo isso através da API, 
+nós nunca vamos nos comunicar diretamente com os outros componentes vai ser sempre através da API.
+Mas, como nós nos comunicamos através da API? Como nós falamos com a API? A nossa máquina não tem poder da vidência e de saber o que é API e como 
+se comunicar com ela, nós precisamos ter uma forma clara de se comunicar com ela através dessa API REST.
+Para isso, nós temos uma ferramenta chamada Kubectl, que nos provê as funcionalidades de criar, ler, atualizar e remover os dados do nosso cluster, 
+os componentes do nosso cluster, os nossos recursos
+Então, através do Kubectl nós conseguimos fazer isso de maneira declarativa ou imperativa. Nós podemos criar arquivos de definição ou executarmos comandos, 
+que simplesmente vão fazer essa mágica acontecer.
+E tudo isso ainda vai ser enviado um request do nosso Kubectl para a nossa API REST, que vai fazer a mágica acontecer dentro do nosso cluster. 
+Só que a dúvida que fica agora, como nós instalamos o Kubectl? Porque nós não temos instalado ainda. 
+E como nós inicializamos o nosso cluster?
+Imagem com ícone representando um computador com a legenda "kubectl" e uma lista com "Criar", "Ler", "Atualizar" e "Remover". 
+Este se conecta à área de "Cluster" por uma seta de duplo sentido com as legendas "Requests" e "Declarativo ou Imperativo". 
+Na área de Cluster, a primeira seta se conecta ao ícone de "API", que por sua vez se conecta com uma seta de duplo sentido a um desenho 
+de chapéu de mágico com os ícones de "pod", "rs", "deploy" e "vol".
+Nós vamos ver que tem diferentes maneiras de nós inicializarmos aqui o nosso cluster, seja no Windows, seja no Linux, ou seja na nuvem. 
