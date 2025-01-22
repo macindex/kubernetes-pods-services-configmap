@@ -1,0 +1,1 @@
+https://github.com/codeedu/wsl2-docker-quickstart?tab=readme-ov-file#modos-de-usar-docker-no-windows
