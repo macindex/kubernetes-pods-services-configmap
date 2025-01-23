@@ -1,0 +1,14 @@
+Google Cloud?
+É uma plataforma de computação em nuvem que oferece diversos serviços e recursos para empresas. Ao decorrer desse curso, o instrutor irá utilizar uma das muitas ferramentas associadas à plataforma, o Google Kubernetes Engine. É importante saber que, ao utilizar a Google Cloud, podem surgir cobranças que podem ser significativas, dependendo da intensidade de uso.
+
+É normal que para utilizar os serviços de Cloud você tenha que cadastrar alguma forma de pagamento, mas isso não significa necessariamente que haverá qualquer cobrança
+
+Para evitar surpresas na hora de pagar a conta, é recomendável que vocês monitorem de perto o uso do Google Cloud e se familiarizem com o plano gratuito oferecido. Detalhes sobre esse plano podem ser acessados na documentação oficial da Google:
+
+Programa Gratuito do Google
+
+Além disso, é importante que vocês entendam as políticas de preços do Google Cloud e como elas se aplicam a cada serviço e recurso utilizado. O Google Cloud oferece vários modelos de preços, incluindo preços por uso, preços reservados e preços com desconto para uso contínuo.
+
+Em resumo, o Google Cloud oferece uma variedade de recursos e serviços, mas é importante estar ciente das possíveis cobranças e implementar políticas de controle de custos para evitar surpresas na hora de pagar a conta. Mantenham-se informados e aproveitem ao máximo essa ferramenta incrível!
+
+Lembrando que a utilização do Google Kubernetes Engine não é obrigatória para a realização desse curso. Sendo possível o seu entendimento através do uso local do Kubernetes.
