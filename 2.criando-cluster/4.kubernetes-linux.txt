@@ -1,0 +1,19 @@
+Depois de criar um cluster do Kubernetes no Windows, João e sua equipe de pessoas desenvolvedoras precisam fazer o mesmo procedimento, agora em seus computadores Linux. Assim, poderão continuar seu trabalho. Mas eles não têm certeza de como fazer isso.
+
+Ajude-os a selecionar a maneira adequada para gerar um cluster do Kubernetes no Linux:
+
+Alternativa correta
+Precisamos instalar o kube-init e o kubectl manualmente.
+
+
+Alternativa correta
+Precisamos instalar o minikube e o kubectl manualmente. *
+
+
+Alternativa correta
+Basta baixar o instalador do Kubernetes e executar.
+
+
+Alternativa correta
+Assim como no Windows, basta instalar o Docker Desktop.
+
