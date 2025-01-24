@@ -1,12 +1,13 @@
 Agora nós vamos fazer a instalação do Kubectl e inicializar o nosso cluster no Linux.
 Nós vamos ter um processo um pouco diferente em relação ao Windows, pois vamos precisar manualmente instalar o Kubectl https://kubernetes.io/docs/tasks/tools/, e para isso nós 
-poderemos e deveremos seguir a documentação de maneira bem fácil e prática, onde nós só precisamos copiar e colar os comandos no nosso 
+poderemos e deveremos seguir a documentação de maneira bem fácil e prática, onde nós só precisamos copiar e colar os comandos: https://www.kubernetes.io/docs/tasks/tools/install-kubectl/ no nosso 
 terminal. Então, copiando.
 O segundo passo agora é para tornar o Kubectl para nós darmos permissão de executável para ele no nosso sistema. 
 Então, copiando e colando. E por fim, nós movemos ele para o nosso path, mais uma vez nós colocamos a nossa senha e sem problemas.
 Para confirmar se tudo foi instalado sem nenhum problema, nós executamos esse comando . E repare que ele executou e nos retornou as informações do Kubectl.
-Se nós executarmos aquele mesmo comando que nós fizemos no Windows do Kubectl get nodes, o que vai acontecer? Repare que ele deu um erro de conexão recusada, porque nós não temos um cluster ainda. Sem cluster nós não temos API, logo nós não estamos nos comunicando com ninguém.
-E para nós termos o nosso cluster, a nossa API em si, nós vamos utilizar uma ferramenta chamada Minikube, onde ela já cria um ambiente virtualizado com o cluster pronto para nós.
+Se nós executarmos aquele mesmo comando que nós fizemos no Windows do Kubectl get nodes, o que vai acontecer? Repare que ele deu um erro de conexão recusada, porque nós não temos um cluster ainda. 
+Sem cluster nós não temos API, logo nós não estamos nos comunicando com ninguém.
+E para nós termos o nosso cluster, a nossa API em si, nós vamos utilizar uma ferramenta chamada Minikube https://kubernetes.io/docs/tasks/tools/install-minikube/, onde ela já cria um ambiente virtualizado com o cluster pronto para nós.
 E para nós instalarmos ela é bem fácil também, basta nós seguirmos o mesmo passo a passo com os comandos, copiando e colando e depois nós executamos esse comando para criarmos pastas dos binários, caso ela não exista. Provavelmente ela já existe no seu sistema, mas só para garantir e todo mundo seguir o mesmo passo a passo.
 Nós esperamos terminar esse download e assim que ele terminar nós colamos sudo mkdir -p /usr/local/bin no terminal e colamos também o comando de instalação sudo install minikube /usr/local/bin/.
 Se nós executarmos Minikube, nós veremos que apareceram diversas opções. O mais importante é a opção do minikube start, onde ele vai criar para nós um cluster local do Kubernetes na nossa máquina virtualizada.
@@ -20,7 +21,7 @@ Então aqui ele já terminou todo o processo de instalação e aqui agora nós u
 Repare que ele terminou e no final ele ainda nos mostra que o Kubectl já está até configurado para usar o Minikube.
 Então se agora nós executarmos o nosso comando kubectl get nodes, repare o que vai acontecer: ele nos exibe o nosso nó chamado Minikube com status de Ready e o papel aqui de master, sem nenhum problema.Mas caso você que está acompanhando essa aula e vai fazer todo o curso no Linux, a única diferença que você vai ter em relação até então ao Windows, é que sempre que você iniciar a sua máquina, assim como as pessoas que estão utilizando o Windows vão precisar iniciar o Docker Desktop caso ele não esteja lá para inicializar junto com o sistema.
 No Linux, sempre que você iniciar o seu sistema e você for fazer algo relativo ao curso, você vai precisar executar esse comando minikube start --vm-driver=virtualbox novamente, que ele vai reiniciar a sua máquina virtual e o seu cluster consequentemente, para que você consiga se comunicar efetivamente com o seu cluster, ele vai precisar estar iniciado.
-Então, agora que nós vamos ver como funcionam as coisas no Google Cloud Platform, e como nós podemos criar um cluster lá sem nenhum problema, eu consigo ver que é mais fácil do que no Windows e no Linux. É bem intuitivo!
+Então, agora que nós vamos ver como funcionam as coisas no Google Cloud Platform console.cloud.google.com/kubernetes/list?project=aula-gcp , e como nós podemos criar um cluster lá sem nenhum problema, eu consigo ver que é mais fácil do que no Windows e no Linux. É bem intuitivo!
 Veremos como inicializar o cluster no Google Cloud Platform na próxima aula!
 Pronto, o nosso cluster foi criado! Repare o símbolo de check e nós podemos nos conectar a esse cluster usando o próprio shell do Google, o navegador mesmo.
 Então vai carregar aqui esse shell e vai provisionar tudo para que nós possamos utilizar sem nenhum problema. A partir daí, assim que ele terminar essa conexão, é bem rápido, ele não vai demorar muito.
