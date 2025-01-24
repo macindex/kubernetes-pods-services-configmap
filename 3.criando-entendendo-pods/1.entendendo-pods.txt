@@ -1,0 +1,25 @@
+Agora nós vamos entender o que é esse termo tão famoso quando nós ouvimos falar de Kubernetes, que são os pods. Nós vamos entender do que se trata, qual a diferença dele para um container, qual a vantagem da utilização de um pod, porque nós devemos utilizar ele e em qual cenário nós devemos utilizar.
+
+Então vamos lá! Nós podemos começar fazendo aqui uma analogia com um Docker. Nós sabemos que o mundo Docker nós criamos, produzimos, gerenciamos e manipulamos o nosso container; não é verdade?
+
+Então no mundo Docker nós trabalhamos com container. E a partir de agora no Kubernetes nós vamos criar, produzir, manipular e gerenciar - não mais os containers diretamente, e sim os nossos pods. Então o mundo kubernetes, pods, o mundo Docker e containers.
+
+Então está aí uma diferença já de cara que nós vamos começar trabalhar agora com os pods. Mas o que é um pod? Vamos entender agora. Um pod, se nós traduzirmos literalmente, ele é uma capsula na verdade, e uma capsula pode conter um ou mais containers dentro dela.
+Então nós entendemos já a diferença para um pod e entre um pod e um container. Nós sabemos que m pod é um conjunto de um ou mais containers, mas o que isso muda na pratica?
+A partir de agora então, quando nós tivermos aqui a comunicação da nossa máquina com o kubectl para API, nós não vamos pedir pela criação diretamente de um container, e sim de um pod, que pode conter um ou mais containers dentro dele.
+Isso sempre de maneira declarativa ou imperativa. “Mas na prática Daniel, o que isso muda? Vamos entender agora!”
+Dentro de um pod nós temos liberdade, como eu falei para vocês de termos mais containers, mas sempre que nós criamos um pod ele ganha um endereço IP.
+Então o endereço IP não é mais do container, e sim do nosso pod. Dentro do nosso pod nós temos total liberdade de fazermos um mapeamento de portas para os IPs que são atribuídos a esse pod. Então, o que isso quer dizer? Vamos entender agora!
+No momento em que nós fazemos a requisição aqui, por exemplo, para o IP 10.0.0.1, repare que é o mesmo IP que nós estamos fazendo requisição para o IP do pod na porta 8080. Nós estamos nos referindo nesse momento ao nosso container dentro da porta :8080 no nosso pod.
+A mesma coisa se nós tivermos outro container na porta 9000. Quando nós fizermos a requisição para esta porta neste endereço, nós vamos estar nos referindo a esse container :9000.
+O que isso quer dizer? Quer dizer que eles estão compartilhando o mesmo endereço IP e nós consequentemente não podemos ter dois containers na mesma porta dentro de um mesmo pod.
+Seguindo então, o que mais os pods são capazes de fazer? Nós vimos que nós temos um container ou mais dentro de um pod. Caso esse container falhe, o que vai acontecer?
+Nesse momento, esse pod vai parar de funcionar. Ele morreu para sempre e o kubernetes tem total liberdade de criar um novo pod para substituir o antigo, mas não necessariamente com o mesmo IP que ele tinha antes, nós não temos controle sobre isso.
+Por quê? Porquê os pods são efêmeros, eles estão ali para serem substituídos a qualquer momento e toda criação de um novo pod é um novo pod efetivamente, não é o mesmo pod antigo que foi renascido.
+E caso nós tivéssemos mais de um container dentro do mesmo pod, o que iria acontecer se esse pod falhasse? Para ele falhar efetivamente nós teríamos que ter a seguinte condição:
+O primeiro container falhou dentro de um pod. Caso ainda tenha algum container em funcionamento sem nenhum problema dentro desse mesmo pod, ele ainda está saudável; mas caso nenhum container mais esteja funcionando dentro desse pod, esse pod foi finalizado e outro vai ser criado no lugar dele.
+Por fim, vamos entender outra questão aqui de rede do nossos pods. Agora, como mostrei para vocês, nós vamos fazer esse mapeamento de portas entre o IP do pod e aqui os nossos containers, porque agora todo IP pertence ao pod, e não aos containers.
+Isso quer dizer que no fim das contas, eles vão compartilhar os mesmos namespaces de rede e de processo, de comunicação entre o processo e eles também podem compartilhar volume. Nós vamos ver isso no decorrer do curso.
+Mas qual é a grande vantagem? Talvez você já tenha se perguntado isso na sua cabeça. Qual é a grande vantagem deles compartilharem o mesmo IP? A grande vantagem é que agora eles podem fazer essa comunicação diretamente entre eles via localhost, porque eles têm o mesmo IP, não é verdade? Que é 10.0.0.1 nesse caso.
+Então, agora nós temos essa capacidade de fazer uma comunicação de maneira muito mais fácil entre containers de um mesmo pod e isso, é claro, nós também vamos ter total capacidade de comunicar pods entre diferentes IPs. Eu tenho um pod com IP 10.0.0.1, ele pode começar com pod de IP 10.0.0.2. Por exemplo: aqui nós temos total liberdade de fazer essa comunicação.
+Mas isso nós vamos ver no decorrer dos nossos estudos, agora é hora de nós colocarmos a mão na massa e criarmos o nosso primeiro pod. Vejo vocês no próximo vídeo e até lá!
