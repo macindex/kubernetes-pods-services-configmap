@@ -1,0 +1,14 @@
+Depois de criarem clusters do Kubernetes em seus computadores, João e sua equipe precisam entender melhor o funcionamento dos pods. Eles já sabem que pods são a menor unidade no Kubernetes, mas no meio da discussão, surgiram afirmações corretas e outras incorretas se tratando dessas estruturas.
+
+Aponte quais são as ideias verdadeiras sobre os pods no Kubernetes:
+
+Selecione 2 alternativas
+
+A. Containers dentro de um mesmo pod conseguem utilizar a mesma porta.
+
+B. Como possuem IPs diferentes, containers em pods diferentes podem utilizar o mesmo número de porta. *
+
+C. Containers em diferentes pods conseguem se comunicar via localhost.
+
+D.Containers dentro de um mesmo pod conseguem se comunicar via localhost. *
+
