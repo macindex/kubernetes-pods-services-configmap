@@ -1,0 +1,17 @@
+O time de tecnologia de João está aprendendo a trabalhar com pods no Kubernetes. Nesse momento, é importante entenderem quais comandos devem usar para criar, descrever e editar os pods.
+
+Ajude-os a descobrir qual conjunto de comandos é o correto:
+
+Selecione uma alternativa
+
+A. kubectl run, kubectl describe, kubectl edit *
+B. kubectl run, kubectl show, kubectl edit
+C. kubectl make, kubectl show, kubectl edit
+D. kubectl execute, kubectl show, kubectl edit
+
+Executamos o nosso primeiro Pod. Porém, como o Kubernetes armazena as imagens baixadas dentro do cluster?
+
+A resposta é simples: quando definimos que um Pod será executado, o scheduler definirá em qual Node isso acontecerá. 
+O resultado então é que as imagens quando baixadas de repositórios como o Docker Hub, serão armazenadas localmente em cada Node, 
+não sendo compartilhada por padrão entre todos os membros do cluster.
+
