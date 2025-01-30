@@ -1,0 +1,17 @@
+João e sua equipe estão aprendendo a criar pods no Kubernetes usando arquivos YAML. Eles criaram um arquivo para gerar um pod, mas não tem certeza se a escrita está correta.
+
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: container-pod-1
+      image: nginx:latest
+      
+Levando em conta o que já foi escrito, o que podemos afirmar sobre este arquivo YAML?
+
+Selecione uma alternativa
+
+A. Não funcionará, no lugar de kind devia estar escrito type.
+B. Não funcionará, faltou definir o metadata e o name.
+C. Não funcionará, spec e containers estão alinhados de maneira errada.
+D. Funcionará sem problemas.
