@@ -1,0 +1,53 @@
+Agora nós vamos começar a colocar a mão na massa em um projeto mais bem elaborado, para nós conseguirmos, como eu falei, sedimentar os conceitos que nós viemos aprendendo.
+
+Então, de início nós temos aqueles dois pods da aula passada funcionando ainda. Nós temos duas maneiras de fazer esses pods pararem de funcionar.
+
+Esse que foi criado de maneira imperativa, nós só temos essa possibilidade de executarmos o comando Kubectl delete pod e passamos o nome do pod que nós queremos deletar.
+
+Então a partir desse momento que nós executarmos o comando kubectl get pods de novo, que está terminando de deletar, nós vamos ver que esse nginx-pod foi removido; nós não temos esse pod em execução, só o nosso primeiro-pod-declarativo, que foi criado de maneira declarativa.
+
+A outra maneira que nós temos de eliminarmos um pod que foi criado também de maneira declarativa, que no caso é o nosso pod, é da seguinte maneira: nós podemos utilizar o kubectl delete –f para passar um arquivo. Qual é o pod que nós queremos criar? O pod que está utilizando o arquivo de definição baseado no .\primeiro-pod.yaml.
+
+Então, ele vai bater esse nome: primeiro-pod-declarativo e vai remover esse pod. Nós apertamos a tecla “Enter” e ele também vai ser deletado. Olhe que legal!
+
+Então nós temos essa maneira de removermos imperativamente, mas também nós podemos remover ele em cima do nosso arquivo de definição. Olhe que legal!
+
+Mas vamos criar o nosso projeto! Nós vamos trabalhar em cima de um portal de notícias, só que seguindo todas as boas práticas do Kubernetes e como nós podemos utilizar os recursos ao nosso favor.
+
+Então, como nós vamos criar de início um pod para esse portal de notícias, que é uma imagem Docker que já existe, nós vamos criar esse pod. Vamos chamar ele de “portal-noticias.yaml”.
+
+E dentro dele nós temos aquelas informações que nós já vimos, da versão da API. Como é um pod que está na versão V1 e o tipo que nós queremos criar, nós já sabemos que é um pod.
+
+Os metadados daqui que nós vamos definir, nós vimos que o nome que nós vamos definir é também arbitrário. Nós podemos colocar name: portal-noticias, sem nenhum problema. Nós podemos dar o nome que nós quisermos, mas é sempre bom sermos semântico.
+
+E as especificações desse name: portal-noticias, quais são as informações do container que vai compor esse pod para nós? Ele vai ter um nome que nós temos total liberdade para definirmos. Como, por exemplo: portal-noticias-container. Nós podemos dar o nome que nós quisermos para esse campo desse nosso container.
+
+E a imagem que nós vamos utilizar é uma imagem que já existe e está nesse repositório da Alura – image: aluracursos/portal-noticias:1 (na versão 1). Nós salvamos esse arquivo e partindo daí basta nós repetirmos o nosso comando e aplicarmos o nosso arquivo de definição, passando a flag -f .\portal-noticias.yaml e ele vai criar. Olhe que legal!
+
+Se agora nós escrevermos o nosso kubectl get pods –watch, ele vai começar a acompanhar esse status de criação. Como nós não sabemos quanto tempo vai demorar para baixar, eu vou dar uma pequena pausa e assim que ele criar o nosso pod eu voltarei para nós seguirmos com o nosso projeto.
+
+Criado, rodando sem nenhum problema. Como nós acessamos agora essa aplicação dentro desse pod que nós acabamos de criar? Nós podemos de início verificarmos qual é o IP dele com o comando kubectl describe pod portal-noticias. Ele vai nos exibir todo o status de que tudo está rodando sem nenhum problema. Se nós vemos o nosso IPem cima, ele é 10.1.0.9.
+
+Então vamos copiar. Nós podemos abrir o nosso navegador. Vamos abrir ele sem nenhum problema, vamos abrir e vamos tentar executar esse IP.
+
+O que vai acontecer? Pelo tempo que está demorando nós já conseguimos ter uma breve noção de que alguma coisa está errada. Então ele vai continuar tentando acessar e enquanto ele tenta acessar nós vamos tentar acessar ele de uma outra maneira.
+
+Vamos voltar para o nosso terminal. Eu vou digitar clear e nós temos uma maneira de verificar se tudo dentro do nosso pod está funcionando da maneira que nós esperamos.
+
+Nós conseguimos executar comandos dentro do nosso pod. Assim como no Docker, nós temos aquele comando docker exec. Aqui no Kubernetes, nós temos o comando kubectl exec e também de maneira interativa.
+
+E qual é o comando? Qual é o pod que nós queremos executar de maneira interativa? Exatamente o nosso portal-noticias. E qual comando nós queremos executar dentro dele? Nós queremos executar o comando do bash, que é o terminal ali, no caso.
+
+Mas para nós fazermos isso, nós precisamos colocar -- e o comando que nós queremos executar. Então nós apertamos a tecla “Enter” - e nós estamos no container, nós estamos no terminal dentro do container do nosso pod.
+
+E nós conseguimos executar comandos. Como, por exemplo, um curl, para enviarmos uma requisição. Eu quero enviar uma requisição para o meu localhost, ou seja, para o endereço dentro do meu pod, dentro do meu container.
+
+Se eu apertar a tecla “Enter”, repare que ele exibiu todo o conteúdo da página web que eu esperava. Mas se nós voltarmos no nosso navegador, ele não conseguiu acessar essa página, ele demorou muito a responder; nós não conseguimos acessar.
+
+Mas por que nós não conseguimos acessar? Se nós voltarmos mais uma vez no nosso comando - vamos sair do nosso pod, do nosso container, apertando as teclas “Control + D”, vamos descrever ele mais uma vez, kubectl describe pod, e vamos exibir as informações do nosso portal de notícias.
+
+Esse IP que ele está exibindo (10.1.0.9) é o IP desse pod, realmente - mas esse pod, esse IP especificamente, é para acesso só dentro do cluster. Então as outras aplicações dentro do cluster vão conseguir se comunicar com esse pod através desse IP.
+
+E mais, nós não fizemos nenhum tipo de mapeamento para exibirmos o nosso container dentro do nosso pod porque, como nós vimos, o IP é do pod, e não do container.
+
+Como ele sabe que a partir desse IP ele deve acessar o nosso container dentro do pod? Nós precisamos fazer um mapeamento para isso - e mais, nós precisamos fazer a liberação para que esse IP seja acessível no mundo externo ao cluster.
