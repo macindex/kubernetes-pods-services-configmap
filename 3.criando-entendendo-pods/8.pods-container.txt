@@ -1,0 +1,4 @@
+João encontrou um problema em seu cluster Kubernetes e está investigando a causa. Ele notou que um dos pods parou de responder e precisa descobrir quando isso aconteceu. Para isso, é necessário saber em que momento um pod é considerado encerrado.
+
+Selecione a alternativa que especifica quando um pod foi encerrado.
+
