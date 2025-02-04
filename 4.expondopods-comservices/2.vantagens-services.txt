@@ -1,0 +1,17 @@
+Lidando com um projeto no Kubernetes, João percebeu a necessidade de garantir que um conjunto de pods fosse acessível por outros componentes do sistema, mesmo que esses pods fossem removidos e substituídos. Ele descobriu que o service é um recurso do Kubernetes que atendia a essa necessidade. Então, começou a pesquisar sobre as vantagens da utilização dos services.
+
+Quais das alternativas abaixo mostram vantagens do uso de services?
+
+Quais das alternativas abaixo mostram vantagens do uso de services?
+
+Services não possuem um DNS estável.
+
+Alternativa correta
+Fazem o balanceamento de carga.
+
+Não podem ser criados de maneira declarativa.
+
+
+Alternativa correta
+Proveem IP's fixos para comunicação.
+
