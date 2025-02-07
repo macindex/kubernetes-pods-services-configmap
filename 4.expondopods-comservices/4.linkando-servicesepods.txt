@@ -1,0 +1,15 @@
+João acabou de criar vários pods para suas aplicações e agora seus clientes devem acessá-las de forma mais simples, 
+sem precisar conhecer a porta de cada pod. Para isso, ele decide criar um service, que vai prover um IP fixo para 
+comunicação e balancear a carga entre os pods.
+
+Mas como um service sabe quais pods deve gerenciar? Selecione a alternativa correta.
+
+A. Através de labels definidas no metadata e utilizando o campo selector no service.
+B. Devemos declarar os dois no mesmo arquivo.
+C. Precisamos definir isso manualmente através do kubectl.
+D. Através das informações no campo name dentro de metadata.
+
+A. Através de labels definidas no metadata e utilizando o campo selector no service.
+
+No Kubernetes, o campo selector no serviço (service) é utilizado para definir quais pods o serviço deve gerenciar. Os pods são selecionados com base nas labels definidas no metadata desses pods. Essas labels permitem que o serviço identifique e associe os pods corretos para balanceamento de carga e comunicação.
+
