@@ -1,0 +1,17 @@
+João está gerenciando um cluster Kubernetes e executou o comando kubectl get svc para verificar as informações dos serviços presentes no cluster. A saída obtida foi a seguinte:
+
+NAME          TYPE        CLUSTER-IP      PORT(S)               
+svc-1       NodePort     10.101.214.22   80:30000/TCPCopiar código
+Com base nessa saída, marque as opções corretas a respeito do cluster e do service.
+
+Selecione 2 alternativas
+
+
+A. Dentro do cluster o service escuta na porta 80, enquanto fora do cluster escuta na porta 30000.
+
+B. Esse service pode ser acessado de fora do cluster utilizando o IP 10.101.214.22.
+
+C. Utilizamos o IP do nó para acessar o service através da porta 30000.
+
+D. Dentro do cluster o service escuta na porta 30000, enquanto fora do cluster escuta na porta 80.
+;
