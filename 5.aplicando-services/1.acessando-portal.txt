@@ -1,0 +1,33 @@
+Como eu falei para vocês, agora nós vamos colocar a mão na massa com prática em cima do que nós já vimos sobre serviços e pods.
+
+O primeiro passo que nós vamos fazer é colocar o nosso “portal-noticias” com o NodePort para que nós consigamos acessar ele de fora do nosso cluster.
+
+Então, primeiramente, por questão de organização, eu vou tirar todos esses pods que nós já temos em execução com o comando kubectl delete pods –all e vou fazer a mesma coisa para os serviços; para nós ficarmos com todo o nosso projeto limpinho, nós não vamos precisar desses pods que nós usamos para entender os conceitos de serviço agora.
+
+Vou fazer a mesma coisa com os serviços kubectl delete svc – all. Removidos. no Visual Studio Code eu vou deixar apenas o pod, o arquivo do pod do nosso “portal-noticias. Pronto, removido! Agora só o nosso “portal-noticias” e a partir daqui nós vamos definir um serviço para fazermos a exposição desse nosso *pod.
+
+E como nós vamos fazer isso agora? Nós precisamos primeiramente definir um serviço para ele, mas nós vimos que para definir um serviço para um pod nós precisamos definir uma label para ele.
+
+Então eu vou definir uma label chamada app: portal-noticias, que nada impede de nós termos uma chave com um valor igual ao name. E também, aquela questão de documentação, eu vou definir em ports: - containerPort: 80.
+
+E agora nós podemos finalmente criar o nosso serviço - que eu vou chamar de o arquivo de “svc-portal-notícias.yaml”. Sem nenhum mistério!
+
+A API version que nós vamos colocar vai ser V1. O kind nós já vimos que vai ser um Service e a partir daí nós definimos um metadata:, que eu vou dar um meio para ele - que vai ser svc-portal-noticias. Nas especificações do tipo dele nós vamos colocar como type: NodePort, porque nós queremos acessar de fora do cluster.
+
+Em ports:, o que nós vamos definir? Que dentro do cluster nós queremos que quando ele ouça algo na porta 80 e encaminhe para a porta 80 do pod que está sendo gerenciado por ele.
+
+Então nós podemos definir de maneira implícita só o port uma vez, não precisamos definir também nosso TargetPort; porque se eu escrever só o port, ele já assume que nós estamos definindo igualmente.
+
+Então vou deixar comentado só para vocês entenderem isso e frisarem essa ideia e agora nós conseguimos definir o nosso NodePort, que eu vou colocar na porta 30000 - porque nós temos essa restrição entre 30000 e 32767, 32767. Eu vou manter na 30000.
+
+E por fim, nós precisamos que também colocar o nosso seletor. Então eu quero selecionar o recurso que tenha a chave app e o valor de portal-noticias. Tudo correndo bem, podemos agora limpar o nossoPowerShell e executar um kubectl apply -f .\portal-noticias.yaml e kubectl apply -f .\svc-portal-noticias.yaml.
+
+Tudo correndo bem, ele vai estar em execução e agora nós podemos abrir uma nova aba do nosso navegador. Eu vou abrir para nós fazermos o acesso ao nosso localhost:30000.
+
+E olhe só a mágica! Agora nós conseguimos acessar a nossa aplicação a partir do mundo externo. Nós não estamos mais dentro do nosso cluster e vale lembrar que, caso você esteja fazendo isso dentro do Linux, você vai precisar fazer o mapeamento com o seu IP do Minikube. Então sem mistérios vocês vão precisar utilizar aquele internal IP para fazerem o acesso sem nenhum problema.
+
+Então basicamente é isso que vocês têm que fazer; utilizar um INTERNAL-IP para fazer a comunicação não LocalHost.
+
+Então por esse vídeo é isso! Nós precisamos agora criar um portal, um sistema para que esse portal consiga fazer o acesso às nossas notícias. Então se nós viermos, nós ainda não temos notícia e não temos maneira de cadastrar essas notícias.
+
+É isso que nós vamos fazer no próximo vídeo, subiremos um pod e um serviço para que nós consigamos cadastrar notícias nesse portal. Então por esse vídeo é só, eu verei vocês no próximo. Até mais!
