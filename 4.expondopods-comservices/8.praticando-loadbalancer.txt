@@ -1,0 +1,11 @@
+João precisa garantir que os serviços estejam acessíveis de fora do cluster, sem expor diretamente os pods. Ele sabe que pode usar um tipo de serviço específico para essa finalidade, o chamado Load Balancer, mas ainda tem algumas dúvidas sobre seu funcionamento.
+
+Sendo assim, selecione as afirmativas que são verdadeiras sobre Load Balancers.
+
+Selecione 2 alternativas
+
+A. Utilizam automaticamente os balanceadores de carga de cloud providers. *
+B. Por serem um Load Balancer, também são um NodePort e ClusterIP ao mesmo tempo. *
+C. O Load Balancer não permite acesso a partir de fora do cluster.
+D. Necessitam de intervenção manual para se integrarem aos balanceadores de carga de cloud providers.
+
