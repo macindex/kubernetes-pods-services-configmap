@@ -1,0 +1,34 @@
+O que nós temos até então é o nosso portal de notícias sendo gerenciado por esse serviço do tipo NodePort, que permite o acesso do mundo externo ao nosso pod dentro do nosso cluster.
+
+Mas o que nós queremos? Como nós falamos, criar um serviço e um pod responsáveis no caso pelo sistema de notícias onde nós vamos cadastrar. Esse sistema também vai prover para o nosso portal essas notícias para que nós possamos exibir.
+
+Então, como nós queremos acesso do mundo externo ao nosso pod do sistema de notícias e também ao mundo interno do nosso cluster, para que o nosso portal consiga consumir essas notícias, nós precisamos criar um NodePort e um pod no caso - obviamente com a imagem do nosso sistema. Então vamos fazer isso.
+
+Eu vou abrir o nosso Visual Studio Code mais uma vez e nós vamos criar o nosso 'sistema-noticias.yaml”, o arquivo de declaração dele.
+
+Vamos achar “apiVersion: v1”, o tipo que nós queremos criar é um kind: Pod e no metadata: dele vamos chamar de name: sistema-noticias. Sem nenhum problema, nenhuma mudança.
+
+E como mais uma vez, ele também vai ser gerenciado por outro serviço, uma label com app: sistemas-noticias.
+
+Nas especificações vamos definir as configurações do container, onde o name: dele vai ser sistema-noticias-container. na image:, ao invés de nós utilizarmos a nossa clássica aluraCursos/portal-noticias, nós vamos usar o aluracursos/sistema-notícias; a imagem que contém todas as informações do nosso sistema, toda implementação para nós podermos executar.
+
+Vamos botar o nosso ports: com o “- containerPorts:80”, que nós estamos deixando claro que a nossa aplicação da aluraCursos/sistema-noticias é executada na porta 80. Como nós temos dois pods diferentes, cada um vai ter o seu respectivo IP, não vai ter nenhum conflito de porta.
+
+E por fim, precisamos agora criar o nosso para esse sistema, então: “svc-sistema-noticias.yaml” e vamos lá! Digitamos apiVersion: v1. Nós queremos expor ele para o mundo externo então: kind: Service, com um metadata:, um name: svc-sistema-noticias, com as especificações. O tipo dele nós vimos que vai ser um type: NodePort.
+
+Em ports: nós vamos fazer o mapeamento de como nós queremos que ele ouça na parte 80 este serviço e despache também para a porta 80.
+
+Mais uma vez, nós não precisamos fazer essa declaração do TargetPort se nós queremos que a entrada seja igual a saída. Por fim, o NodePort: - como nós não podemos, nós estamos acessando o nosso cluster de maneira externa, nós precisamos ter uma maneira única de garantir o que nós estamos acessando.
+
+Então como nós já estamos utilizando a porta 30000, nós não podemos utilizá-la de novo, então vamos utilizar a porta 30001.
+
+Finalizando, basta nós usarmos o nosso “select” e definirmos que nós queremos gerenciar o app que tem as informações com a label sistema-noticias. Copiando, salvando e nós já conseguimos aplicar. Então, vamos lá!
+
+kubectl apply -f .\sistema-noticias,yaml e kubectl apply -f “.\svc-sistema-noticias.yaml e o kubectl get pods, estão os dois, já em execução.
+
+Se nós voltarmos no nosso navegador e abrirmos agora o nosso localhost:30001... está o nosso sistema de notícias!
+
+Olhe que legal! Ele vai ser responsável por todo cadastro de notícias dentro do nosso sistema e nós vamos cadastrar todas essas notícias a partir d, mas nós devemos ter em algum lugar. Inclusive, por isso está reclamando em cima para nós guardarmos a informação dessas notícias - e isso vai ser exatamente um banco de dados.
+
+Então nós precisamos também subir um banco que vai ser responsável por guardar as informações da nossa notícias, e esse banco vai se comunicar o nosso sistema.
+Então por esse vídeo é só. Nós conseguimos subir o nosso sistema - que também é NodePort, mas nós precisamos subir o nosso banco e nós vamos ver como nós vamos fazer isso no próximo vídeo. Eu verei vocês lá. Até mais!
