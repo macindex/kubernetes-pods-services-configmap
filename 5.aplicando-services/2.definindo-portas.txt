@@ -1,0 +1,17 @@
+João escreveu um arquivo YAML para criar um service no Kubernetes que exponha um portal de notícias. Ele definiu o nome do serviço, estabeleceu o tipo como “NodePort” e a porta como “80”. No entanto, ele não tem certeza se o arquivo está correto e precisa de ajuda.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-portal-noticias
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+  #Trecho omitido…
+
+Levando em conta este arquivo YAML, qual alternativa traz a afirmação correta? Selecione uma alternativa 
+A. Ele não funcionará, pois não definimos o campo targerPort dentro de ports:. 
+B. Ele não funcionará, precisamos definir labels dentro do metadata do service. 
+C. Ele funcionará sem problema algum. *
+D. Ele não funcionará, pois não definimos o campo nodePort dentro de ports:.
